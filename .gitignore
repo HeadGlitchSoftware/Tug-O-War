@@ -1,0 +1,50 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# User-specific files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE folders
+.vscode/
+.idea/
+
+# Unity Version Control (Plastic SCM)
+.plastic/
+ignore.conf
+hidden_changes.conf
+
+# Collaborate (legacy)
+.collab/
+.collabignore
+
+# Optional: Git LFS (if using)
+# *.psd
+# *.fbx
+# *.wav
+# *.mp4
+# *.png
+# *.tga
+# *.zip
