@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CountdownAnimationFunctions : MonoBehaviour
 {
-    void PlaySound(string soundEffectName){
+    public void PlaySound(string soundEffectName){
         // Check if a sound effect is applied
         if (soundEffectName != null){
             try{

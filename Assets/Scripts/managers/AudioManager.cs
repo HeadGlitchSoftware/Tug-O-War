@@ -27,9 +27,8 @@ public class AudioManager : MonoBehaviour
     public string[] ambientClipNames;
 
     public String defaultMusicClip;
-    public String defaultAmbientClip;
+    public String defaultAmbientClip = "Ambient Sound";
 
-    //Initialize Audio Manager if none is present in a scene
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void InitializeAudioManager()
     {
