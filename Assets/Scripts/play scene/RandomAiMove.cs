@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RandomAI_Move : MonoBehaviour
+public class RandomAIMove : MonoBehaviour
 {
     [SerializeField]
     public float moveDistance = 0.5f; // The distance to move the object each time

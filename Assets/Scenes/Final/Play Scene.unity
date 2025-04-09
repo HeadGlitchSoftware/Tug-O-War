@@ -407,7 +407,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 266378871}
-  timerDuration: 120
+  timerDuration: 300
+  tickSoundEffect: clockTick
+  playing: 0
 --- !u!1 &384365215
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 628187832}
+  - component: {fileID: 628187833}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -678,6 +681,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &628187833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628187831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a831f1c240e04c648892dfa2ecaafe43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerController: {fileID: 266378873}
+  ropeManager: {fileID: 1045287608}
 --- !u!1 &749382854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045287607}
+  - component: {fileID: 1045287608}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -1284,6 +1302,20 @@ Transform:
   - {fileID: 1499260572}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045287608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045287606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4bcce438c5d9f458c72262e169c59f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ropeObject: {fileID: 996782478}
+  ropeTarget: {fileID: 1499260569}
 --- !u!1 &1103237365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1778,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499260569}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcef417d45041274ba5744c38d263300, type: 3}
   m_Name: 
