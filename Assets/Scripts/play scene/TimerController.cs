@@ -64,7 +64,6 @@ public class TimerController : MonoBehaviour
     }
 
     public void ResetTimer(){
-        playing = false;
         SetTimerDuration(timerDuration);
     }
 
