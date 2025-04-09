@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class RandomAI_Move : MonoBehaviour
 {
-    public float moveSpeed = 1f; // The distance to move the object each time
+    [SerializeField]
+    public float moveDistance = 0.5f; // The distance to move the object each time
+    #region 
+    [SerializeField]
     public float minInterval = 1f;  // Minimum time interval between movements
+    [SerializeField]
     public float maxInterval = 3f;  // Maximum time interval between movements
+    #endregion
+    [SerializeField]
+    private string soundEffectName;
 
-    private Vector3 randomDirection;
     private float nextMoveTime;
 
     private void Start()
@@ -20,6 +26,8 @@ public class RandomAI_Move : MonoBehaviour
         // Check if it's time to move the object
         if (Time.time >= nextMoveTime)
         {
+            //Play sound effect
+            PlaySound();
             // Move the object
             MoveObject();
             // Set the next time the object will move
@@ -35,6 +43,18 @@ public class RandomAI_Move : MonoBehaviour
 
     private void MoveObject()
     {
-        transform.Translate(0, moveSpeed, 0);
+        transform.Translate(0, moveDistance, 0);
+    }
+
+    void PlaySound(){
+        // Check if a sound effect is applied
+        if (soundEffectName != null){
+            try{
+            AudioManager.Instance.PlaySFX(soundEffectName);
+            }
+            catch{
+                Debug.LogWarning("Unable to play Sound Effect!");
+            }
+        }
     }
 }

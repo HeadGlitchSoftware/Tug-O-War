@@ -18,18 +18,27 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float ambientVolume = 0.5f;
 
     // Music, SFX, and Ambient Clips (can be assigned from the Inspector)
-    public AudioClip[] musicClips; // Array for different music tracks
-    public AudioClip[] sfxClips;   // Array for different sound effects
-    public AudioClip[] ambientClips; // Array for different ambient sound clips
+    public AudioClip[] musicClips;
+    public AudioClip[] sfxClips; 
+    public AudioClip[] ambientClips;
 
-    // For searching sound effects, music, and ambient sounds by name
-    public string[] sfxClipNames;  // Array of names corresponding to the SFX clips
-    public string[] musicClipNames; // Array of names corresponding to the music clips
-    public string[] ambientClipNames; // Array of names corresponding to the ambient sound clips
+    public string[] sfxClipNames; 
+    public string[] musicClipNames;
+    public string[] ambientClipNames;
 
-    // Default music and ambient clips that will be played on start (set these in the Inspector)
-    public String defaultMusicClip;  // Assign the default music clip in the Inspector
-    public String defaultAmbientClip;  // Assign the default ambient clip in the Inspector
+    public String defaultMusicClip;
+    public String defaultAmbientClip;
+
+    //Initialize Audio Manager if none is present in a scene
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void InitializeAudioManager()
+    {
+        if (Instance == null)
+        {
+            GameObject go = new GameObject("AudioManager (Auto)");
+            go.AddComponent<AudioManager>();
+        }
+    }
 
     private void Awake()
     {
@@ -50,12 +59,12 @@ public class AudioManager : MonoBehaviour
         ambientSource = gameObject.AddComponent<AudioSource>();
 
         // Set default settings for AudioSources
-        musicSource.loop = true;  // Music will loop
-        musicSource.volume = musicVolume; // Set initial volume
-        sfxSource.loop = false;  // Sound effects do not loop
-        sfxSource.volume = sfxVolume; // Set initial volume
-        ambientSource.loop = true;  // Ambient sounds will loop
-        ambientSource.volume = ambientVolume; // Set initial volume
+        musicSource.loop = true;
+        musicSource.volume = musicVolume;
+        sfxSource.loop = false;
+        sfxSource.volume = sfxVolume;
+        ambientSource.loop = true;
+        ambientSource.volume = ambientVolume;
 
         // Automatically collect audio clips from the Resources/Audio folder
         CollectAudioClips("Audio");
@@ -162,25 +171,25 @@ public class AudioManager : MonoBehaviour
         // Create lists to hold the clips and their corresponding names
         List<AudioClip> musicList = new List<AudioClip>();
         List<AudioClip> sfxList = new List<AudioClip>();
-        List<AudioClip> ambientList = new List<AudioClip>(); // List for ambient sounds
+        List<AudioClip> ambientList = new List<AudioClip>();
         List<string> musicNames = new List<string>();
         List<string> sfxNames = new List<string>();
-        List<string> ambientNames = new List<string>(); // List for ambient sound names
+        List<string> ambientNames = new List<string>();
 
         foreach (AudioClip clip in allClips)
         {
             // Add clips to appropriate lists (music vs sound effects vs ambient sounds)
-            if (clip.name.Contains("Music")) // Assuming your music clips have "Music" in the name
+            if (clip.name.Contains("Music"))
             {
                 musicList.Add(clip);
                 musicNames.Add(clip.name);
             }
-            else if (clip.name.Contains("Ambient")) // Assuming your ambient clips have "Ambient" in the name
+            else if (clip.name.Contains("Ambient"))
             {
                 ambientList.Add(clip);
                 ambientNames.Add(clip.name);
             }
-            else // Otherwise, treat it as a sound effect
+            else
             {
                 sfxList.Add(clip);
                 sfxNames.Add(clip.name);
