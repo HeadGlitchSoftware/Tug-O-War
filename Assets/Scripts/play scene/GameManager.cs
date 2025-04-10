@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Animator countdownAnimation;
 
+    [SerializeField]
+    private ScoreManager scoreManager;
+
     public void Awake()
     {
         if (Instance != null && Instance != this)
@@ -49,4 +52,14 @@ public class GameManager : MonoBehaviour
         timerController.Playing(false);
         ropeManager.Pause();
     }
+
+    public void UpdateScore(string winner){
+        if(winner=="orange"){
+         scoreManager.AddPointToOrange();   
+        }
+        if(winner=="blue"){
+         scoreManager.AddPointToBlue();   
+        }
+    }
+
 }

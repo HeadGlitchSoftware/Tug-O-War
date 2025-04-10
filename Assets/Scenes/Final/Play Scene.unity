@@ -764,6 +764,7 @@ MonoBehaviour:
   timerController: {fileID: 266378873}
   ropeManager: {fileID: 1045287608}
   countdownAnimation: {fileID: 2131553046}
+  scoreManager: {fileID: 1015453631}
 --- !u!1 &749382854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1015453630}
+  - component: {fileID: 1015453631}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -1360,6 +1362,20 @@ Transform:
   - {fileID: 929115422}
   m_Father: {fileID: 1824863804}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1015453631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015453629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2412ed9024825ab4ab1729587342322d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueScoreText: {fileID: 1268591296}
+  orangeScoreText: {fileID: 929115424}
 --- !u!1 &1045287606
 GameObject:
   m_ObjectHideFlags: 0
