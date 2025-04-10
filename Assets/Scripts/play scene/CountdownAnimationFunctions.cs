@@ -17,6 +17,6 @@ public class CountdownAnimationFunctions : MonoBehaviour
     }
 
     public void StartGame(){
-        GameManager.Instance.StartGameSequence();
+        GameManager.Instance.ResumeGame();
     }
 }

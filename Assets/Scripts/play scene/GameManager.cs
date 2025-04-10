@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);  
     }
 
-    public void StartGameSequence()
+    public void ResumeGame()
     {
         timerController.Playing(true);
         ropeManager.Play();
@@ -34,15 +34,19 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        //Reset and pause the timer
+        //Reset scene elements
         timerController.ResetTimer();
-        timerController.Playing(false);
-        
-        //Reset and pause rope assets
         ropeManager.Reset();
-        ropeManager.Pause();
+
+        //Pause game and wait for animation to finish
+        PauseGame();
         
         //Reset Animation
         countdownAnimation.SetTrigger("Restart Animation");
+    }
+
+    public void PauseGame(){
+        timerController.Playing(false);
+        ropeManager.Pause();
     }
 }
