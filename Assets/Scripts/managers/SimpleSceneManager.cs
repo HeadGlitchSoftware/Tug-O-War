@@ -5,6 +5,16 @@ public class SimpleSceneManager : MonoBehaviour
 {
     public static SimpleSceneManager Instance;
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void InitializeSceneManager()
+    {
+        if (Instance == null)
+        {
+            GameObject go = new GameObject("SceneManager(Auto)");
+            go.AddComponent<SimpleSceneManager>();
+        }
+    }
+
     private void Awake()
     {
         // Singleton pattern

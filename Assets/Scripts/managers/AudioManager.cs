@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance == null)
         {
-            GameObject go = new GameObject("AudioManager (Auto)");
+            GameObject go = new GameObject("AudioManager(Auto)");
             go.AddComponent<AudioManager>();
         }
     }

@@ -1,24 +1,47 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System.Collections.Generic;
 
 public class DialogManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject dialogPanel;
+
     [SerializeField]
     private List<KeyCode> closeKeys = new List<KeyCode> { KeyCode.Escape };
+
+    [SerializeField]
+    private List<KeyCode> openKeys = new List<KeyCode> { KeyCode.Escape };
+
+    [SerializeField]
+    private string buttonPressSound;
+
+    public UnityEvent onDialogOpened;
+    public UnityEvent onDialogClosed;
 
     private bool isDialogOpen = false;
 
     void Update()
     {
-        if (isDialogOpen)
+        if (!isDialogOpen)
+        {
+            foreach (KeyCode key in openKeys)
+            {
+                if (Input.GetKeyDown(key))
+                {
+                    PlayButtonPressSound();
+                    ShowDialog();
+                    break;
+                }
+            }
+        }
+        else
         {
             foreach (KeyCode key in closeKeys)
             {
                 if (Input.GetKeyDown(key))
                 {
-                    AudioManager.Instance.PlaySFX("thud");
+                    PlayButtonPressSound();
                     HideDialog();
                     break;
                 }
@@ -26,15 +49,25 @@ public class DialogManager : MonoBehaviour
         }
     }
 
+    public void PlayButtonPressSound()
+    {
+        if (!string.IsNullOrEmpty(buttonPressSound))
+        {
+            AudioManager.Instance.PlaySFX(buttonPressSound);
+        }
+    }
+
     public void ShowDialog()
     {
         dialogPanel.SetActive(true);
         isDialogOpen = true;
+        onDialogOpened?.Invoke();
     }
 
     public void HideDialog()
     {
         dialogPanel.SetActive(false);
         isDialogOpen = false;
+        onDialogClosed?.Invoke();
     }
 }
