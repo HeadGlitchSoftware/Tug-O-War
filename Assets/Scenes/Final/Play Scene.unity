@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 266378871}
-  timerDuration: 300
+  timerDuration: 90
   tickSoundEffect: clockTick
   playing: 0
 --- !u!1 &384365215
@@ -763,6 +763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerController: {fileID: 266378873}
   ropeManager: {fileID: 1045287608}
+  countdownAnimation: {fileID: 2131553046}
 --- !u!1 &749382854
 GameObject:
   m_ObjectHideFlags: 0

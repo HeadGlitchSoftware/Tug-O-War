@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,8 +7,12 @@ public class GameManager : MonoBehaviour
     //[Header("Scene Components")]
     [SerializeField]
     private TimerController timerController;
+
     [SerializeField]
     private RopeManager ropeManager;
+
+    [SerializeField]
+    private Animator countdownAnimation;
 
     public void Awake()
     {
@@ -31,7 +34,15 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        //Reset and pause the timer
         timerController.ResetTimer();
+        timerController.Playing(false);
+        
+        //Reset and pause rope assets
         ropeManager.Reset();
+        ropeManager.Pause();
+        
+        //Reset Animation
+        countdownAnimation.SetTrigger("Restart Animation");
     }
 }
