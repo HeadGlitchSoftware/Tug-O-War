@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
     public string[] musicClipNames;
     public string[] ambientClipNames;
 
-    public String defaultMusicClip;
+    public String defaultMusicClip = "Default Music";
     public String defaultAmbientClip = "Ambient Sound";
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

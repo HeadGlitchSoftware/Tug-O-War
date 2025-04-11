@@ -47,7 +47,7 @@ public class TimerController : MonoBehaviour
         int seconds = Mathf.FloorToInt(currentTime % 60);
         int previousSeconds = Mathf.FloorToInt(previousTime % 60);
 
-        if (seconds != previousSeconds){
+        if (seconds != previousSeconds & playing){
             TimerSoundEffect();
         }
         countdownText.text = string.Format("{0}:{1:D2}", minutes, seconds);
