@@ -2322,8 +2322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 0.5
-  minInterval: 0.1
-  maxInterval: 0.5
+  minInterval: 0.01
+  maxInterval: 0.33
   soundEffectName: thud
 --- !u!1 &1640597287
 GameObject:
