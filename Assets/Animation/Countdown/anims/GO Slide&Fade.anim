@@ -594,7 +594,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: PlayAnimatorSound
+    functionName: PlaySound
     data: GoHorn
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

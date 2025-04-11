@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
@@ -29,8 +30,8 @@ public class DialogManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(key))
                 {
-                    PlayButtonPressSound();
                     ShowDialog();
+                    PlayButtonPressSound();
                     break;
                 }
             }
@@ -55,6 +56,10 @@ public class DialogManager : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(buttonPressSound);
         }
+    }
+
+    public void ChangeScene(string sceneName){
+        SimpleSceneManager.Instance.LoadScene(sceneName);
     }
 
     public void ShowDialog()

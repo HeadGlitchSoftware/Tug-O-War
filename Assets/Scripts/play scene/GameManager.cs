@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Animator countdownAnimation;
-    private AnimationAudioManager animationAudioManager;
 
     private bool playing = false;
 
@@ -26,9 +26,6 @@ public class GameManager : MonoBehaviour
         }
         
         Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        animationAudioManager = countdownAnimation.GetComponent<AnimationAudioManager>();  
     }
 
     public void StartGame(){
@@ -36,39 +33,47 @@ public class GameManager : MonoBehaviour
         ResumeGame();
     }
 
-    public void ResumeGame()
-    {
-        countdownAnimation.enabled = true; 
-        animationAudioManager.ResumeAll();
-
-        if (playing){
-        timerController.Playing(true);
-        ropeManager.Play();
-        }
-    }
-
     public void ResetGame()
     {
         playing = false;
+        
         //Reset scene elements
         timerController.ResetTimer();
         ropeManager.Reset();
-        FreezeGame();
+
+        FreezeGame(true);
+
         //Reset Animation
         countdownAnimation.SetTrigger("Restart Animation");
     }
 
+
     public void PauseGame(){
         countdownAnimation.enabled = false;
-        animationAudioManager.PauseAll();
         
         if (playing){
-            FreezeGame();
+            FreezeGame(true);
         }
     }
 
-    private void FreezeGame(){
-        timerController.Playing(false);
-        ropeManager.Pause();
+    public void ResumeGame()
+    {
+        countdownAnimation.enabled = true;
+
+        if (playing){
+            FreezeGame(false);
+        }
+    }
+
+    private void FreezeGame(bool freeze){
+        if (freeze){
+            timerController.Playing(false);
+            ropeManager.Pause();
+        }
+        else if (!freeze){
+            timerController.Playing(true);
+            ropeManager.Play();
+        }
+
     }
 }

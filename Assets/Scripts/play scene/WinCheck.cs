@@ -26,11 +26,13 @@ public class WinCheck : MonoBehaviour
     {
         Debug.Log("Orange Wins!");
         GameManager.Instance.ResetGame();
+        ScoreManager.Instance.AddOrangeScore();
     }
 
     void OnBlueWin()
     {
         Debug.Log("Blue Wins!");
+        ScoreManager.Instance.AddBlueScore();
         GameManager.Instance.ResetGame();
     }
 }
