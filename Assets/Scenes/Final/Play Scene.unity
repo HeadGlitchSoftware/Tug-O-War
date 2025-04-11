@@ -619,9 +619,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 266378871}
-  timerDuration: 90
+  timerDuration: 60
   tickSoundEffect: clockTick
   playing: 0
+  winCheck: {fileID: 116872493}
 --- !u!1 &384365215
 GameObject:
   m_ObjectHideFlags: 0

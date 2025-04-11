@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WinCheck : MonoBehaviour
 {
+
     public BoxCollider2D flagCollider;
     public BoxCollider2D orangeWinCollider;
     public BoxCollider2D blueWinCollider;
@@ -14,25 +15,20 @@ public class WinCheck : MonoBehaviour
 
         if (other == orangeWinCollider)
         {
-            OnOrangeWin();
+            GameManager.Instance.OnLossAction();
         }
         else if (other == blueWinCollider)
         {
-            OnBlueWin();
+            GameManager.Instance.OnWinAction();
         }
     }
 
-    void OnOrangeWin()
-    {
-        Debug.Log("Orange Wins!");
-        GameManager.Instance.ResetGame();
-        ScoreManager.Instance.AddOrangeScore();
-    }
-
-    void OnBlueWin()
-    {
-        Debug.Log("Blue Wins!");
-        ScoreManager.Instance.AddBlueScore();
-        GameManager.Instance.ResetGame();
+    public void OnTimeOut(){
+        if (gameObject.transform.position.y > 0){
+            GameManager.Instance.OnLossAction();
+        }
+        else if (gameObject.transform.position.y < 0){
+            GameManager.Instance.OnWinAction();
+        }
     }
 }

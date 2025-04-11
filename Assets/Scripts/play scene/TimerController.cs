@@ -16,31 +16,36 @@ public class TimerController : MonoBehaviour
     [SerializeField]
     private bool playing;
 
+    [SerializeField]
+    private WinCheck winCheck;
+
     private float currentTime;
     private float previousTime;
 
-    // Start is called before the first frame update
     void Start(){
         SetTimerDuration(timerDuration);
         UpdateTimer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateTimer();
     }
 
     private void UpdateTimer(){
-        if (currentTime > 0 & playing)
+        if (currentTime >= 1 & playing)
         {
             previousTime = currentTime;
-            currentTime -= Time.deltaTime;  // Decrease time
+            currentTime -= Time.deltaTime;
             UpdateDisplay();
+        }
+        else if (currentTime < 1){
+            Debug.Log("Time's Up!");
+            currentTime = 0;
+            winCheck.OnTimeOut();
         }
     }
 
-    // Method to update the text display with the current countdown time
     private void UpdateDisplay(){
         // Convert the time to minutes and seconds
         int minutes = Mathf.FloorToInt(currentTime / 60);

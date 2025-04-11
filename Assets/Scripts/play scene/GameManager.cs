@@ -27,6 +27,16 @@ public class GameManager : MonoBehaviour
         
         Instance = this;
     }
+    public void OnWinAction()
+    {
+        ScoreManager.Instance.AddBlueScore();
+        ResetGame();
+    }
+
+    public void OnLossAction(){
+        ScoreManager.Instance.AddOrangeScore();
+        ResetGame();
+    }
 
     public void StartGame(){
         playing = true;
@@ -74,6 +84,5 @@ public class GameManager : MonoBehaviour
             timerController.Playing(true);
             ropeManager.Play();
         }
-
     }
 }
