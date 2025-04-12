@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private RopeManager ropeManager;
 
     [SerializeField] private Animator countdownAnimation;
+    [SerializeField] private Animator winLossAnimation;
 
     private bool playing = false;
 
@@ -25,12 +26,16 @@ public class GameManager : MonoBehaviour
     public void OnWinAction()
     {
         ScoreManager.Instance.AddBlueScore();
-        ResetGame();
+        winLossAnimation.SetTrigger("OnWin");
+        FreezeGame(true);
+        playing = false;
     }
 
     public void OnLossAction(){
         ScoreManager.Instance.AddOrangeScore();
-        ResetGame();
+        winLossAnimation.SetTrigger("OnLose");
+        FreezeGame(true);
+        playing = false;
     }
 
     public void StartGame(){

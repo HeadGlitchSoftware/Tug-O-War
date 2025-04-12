@@ -2008,6 +2008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45cac07fa74ebc4895feb296c1e0ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SliderSFX: {fileID: 3701098857911627195}
+  SliderAmbient: {fileID: 6985125586434953909}
+  SliderMusic: {fileID: 3557756932135522844}
 --- !u!1 &4031507667426669932
 GameObject:
   m_ObjectHideFlags: 0
