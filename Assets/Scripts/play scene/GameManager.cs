@@ -1,19 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
 
-    //[Header("Scene Components")]
-    [SerializeField]
-    private TimerController timerController;
+    [SerializeField] private TimerController timerController;
 
-    [SerializeField]
-    private RopeManager ropeManager;
+    [SerializeField] private RopeManager ropeManager;
 
-    [SerializeField]
-    private Animator countdownAnimation;
+    [SerializeField] private Animator countdownAnimation;
 
     private bool playing = false;
 

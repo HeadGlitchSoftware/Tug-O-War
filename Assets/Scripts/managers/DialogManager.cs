@@ -5,20 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject dialogPanel;
+    [SerializeField] private GameObject dialogPanel;
 
-    [SerializeField]
-    private List<KeyCode> closeKeys = new List<KeyCode> { KeyCode.Escape };
+    [SerializeField] private List<KeyCode> closeKeys = new List<KeyCode> { KeyCode.Escape };
 
-    [SerializeField]
-    private List<KeyCode> openKeys = new List<KeyCode> { KeyCode.Escape };
+    [SerializeField] private List<KeyCode> openKeys = new List<KeyCode> { KeyCode.Escape };
 
-    [SerializeField]
-    private string buttonPressSound;
+    [SerializeField] private string buttonPressSound;
 
-    public UnityEvent onDialogOpened;
-    public UnityEvent onDialogClosed;
+    [SerializeField] private UnityEvent onDialogOpened;
+    [SerializeField] private UnityEvent onDialogClosed;
 
     private bool isDialogOpen = false;
 

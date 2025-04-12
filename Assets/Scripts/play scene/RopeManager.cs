@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RopeManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject ropeObject;
+    [SerializeField] private GameObject ropeObject;
 
-    [SerializeField]
-    private GameObject ropeTarget;
+    [SerializeField] private GameObject ropeTarget;
 
     MonoBehaviour[] scripts;
 

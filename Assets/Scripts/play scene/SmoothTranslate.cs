@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SmoothTranslate : MonoBehaviour
 {
-    public Transform targetPosition; // The target position to move towards
-    public float baseSpeed = 1f; // Base speed for movement
+    [SerializeField] private Transform targetPosition; // The target position to move towards
+    [SerializeField] private float baseSpeed = 1f; // Base speed for movement
 
     private void Update()
     {

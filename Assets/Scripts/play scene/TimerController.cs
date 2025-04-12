@@ -4,20 +4,15 @@ using UnityEngine.Android;  // Import the TextMeshPro namespace
 
 public class TimerController : MonoBehaviour
 {
-    [SerializeField]
-    private TMP_Text countdownText;  // Reference to your TMP_Text component
+    [SerializeField] private TMP_Text countdownText;  // Reference to your TMP_Text component
 
-    [SerializeField]
-    private float timerDuration = 10f;  // Default duration in seconds
+    [SerializeField] private float timerDuration = 10f;  // Default duration in seconds
 
-    [SerializeField]
-    private string tickSoundEffect;
+    [SerializeField] private string tickSoundEffect;
 
-    [SerializeField]
-    private bool playing;
+    [SerializeField] private bool playing;
 
-    [SerializeField]
-    private WinCheck winCheck;
+    [SerializeField] private WinCheck winCheck;
 
     private float currentTime;
     private float previousTime;
@@ -33,13 +28,13 @@ public class TimerController : MonoBehaviour
     }
 
     private void UpdateTimer(){
-        if (currentTime >= 1 & playing)
+        if (currentTime >= 1 & playing) //If time is on the clock and the clock is running
         {
             previousTime = currentTime;
             currentTime -= Time.deltaTime;
             UpdateDisplay();
         }
-        else if (currentTime < 1){
+        else if (currentTime < 1){ //Check if time has run out
             Debug.Log("Time's Up!");
             currentTime = 0;
             winCheck.OnTimeOut();
@@ -52,14 +47,10 @@ public class TimerController : MonoBehaviour
         int seconds = Mathf.FloorToInt(currentTime % 60);
         int previousSeconds = Mathf.FloorToInt(previousTime % 60);
 
-        if (seconds != previousSeconds & playing){
-            TimerSoundEffect();
+        if (seconds != previousSeconds & playing){ //If the timer display updated this frame
+            AudioManager.Instance.PlaySFX(tickSoundEffect);
         }
         countdownText.text = string.Format("{0}:{1:D2}", minutes, seconds);
-    }
-
-    private void TimerSoundEffect(){
-        AudioManager.Instance.PlaySFX(tickSoundEffect);
     }
 
     public void SetTimerDuration(float newDuration){

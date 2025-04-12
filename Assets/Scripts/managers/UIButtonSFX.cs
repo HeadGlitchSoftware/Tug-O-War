@@ -4,7 +4,7 @@ using UnityEngine;
 public class UIButtonSFX : MonoBehaviour
 {
     [SerializeField]
-    public string sfxName;
+    private string sfxName;
 
     public void PlayButtonSound()
     {

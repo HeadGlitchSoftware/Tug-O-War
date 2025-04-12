@@ -3,10 +3,8 @@ using UnityEngine;
 public class MoveOnSpace : MonoBehaviour
 {
     // Speed at which the object will move on the Y-axis
-    [SerializeField]
-    private float moveDistance = 0.5f;
-    [SerializeField]
-    private string soundEffectName;
+    [SerializeField] private float moveDistance = 0.5f;
+    [SerializeField] private string soundEffectName;
 
     void Update()
     {

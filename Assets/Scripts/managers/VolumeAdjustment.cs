@@ -1,4 +1,3 @@
-// Place this in a script like "UIButtonSFX.cs" and attach it to the same GameObject as your Button
 using UnityEngine;
 
 public class VolumeAdjustment : MonoBehaviour

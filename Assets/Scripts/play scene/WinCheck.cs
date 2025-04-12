@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WinCheck : MonoBehaviour
 {
-
-    public BoxCollider2D flagCollider;
-    public BoxCollider2D orangeWinCollider;
-    public BoxCollider2D blueWinCollider;
+    [SerializeField] private BoxCollider2D flagCollider;
+    [SerializeField] private BoxCollider2D orangeWinCollider;
+    [SerializeField] private BoxCollider2D blueWinCollider;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger Entered!");
-
         if (other == orangeWinCollider)
         {
             GameManager.Instance.OnLossAction();
@@ -22,7 +17,6 @@ public class WinCheck : MonoBehaviour
             GameManager.Instance.OnWinAction();
         }
     }
-
     public void OnTimeOut(){
         if (gameObject.transform.position.y > 0){
             GameManager.Instance.OnLossAction();
