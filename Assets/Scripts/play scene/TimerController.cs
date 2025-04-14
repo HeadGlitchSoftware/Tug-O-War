@@ -34,7 +34,7 @@ public class TimerController : MonoBehaviour
             currentTime -= Time.deltaTime;
             UpdateDisplay();
         }
-        else if (currentTime < 1){ //Check if time has run out
+        else if (currentTime < 1 & playing){ //Check if time has run out
             Debug.Log("Time's Up!");
             currentTime = 0;
             winCheck.OnTimeOut();
