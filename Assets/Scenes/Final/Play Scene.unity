@@ -2880,9 +2880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcef417d45041274ba5744c38d263300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 0.5
-  minInterval: 0.01
-  maxInterval: 0.33
   soundEffectName: thud
 --- !u!1 &1640597287
 GameObject:

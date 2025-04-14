@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class RandomAIMove : MonoBehaviour
 {
-    [SerializeField] private float moveDistance = 0.5f; // The distance to move the object each time
-    [SerializeField] private float minInterval = 1f;  // Minimum time interval between movements
-    [SerializeField] private float maxInterval = 3f;  // Maximum time interval between movements
+    private float moveDistance = 0.5f; // The distance to move the object each time
+    private float minInterval;  // Minimum time interval between movements
+    private float maxInterval;  // Maximum time interval between movements
     [SerializeField] private string soundEffectName;
 
     private float nextMoveTime;

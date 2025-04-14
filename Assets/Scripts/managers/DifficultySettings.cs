@@ -1,6 +1,6 @@
 public static class DifficultySettings
 {
-    private static int difficulty = 2;
+    private static int difficulty;
 
     public static int Difficulty
     {
