@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomAIMove : MonoBehaviour
@@ -11,7 +12,7 @@ public class RandomAIMove : MonoBehaviour
 
     private void Start()
     {
-        // Start the first movement
+        SetDifficultyValues(DifficultySettings.Difficulty);
         SetNextMoveTime();
     }
 
@@ -26,6 +27,33 @@ public class RandomAIMove : MonoBehaviour
             MoveObject();
             // Set the next time the object will move
             SetNextMoveTime();
+        }
+    }
+
+    private void SetDifficultyValues(int difficulty)
+    {
+        switch (difficulty)
+        {
+            case 0: // Easy
+                minInterval = 0.1f;
+                maxInterval = 0.5f;
+                break;
+            case 1: // Normal
+                minInterval = 0.1f;
+                maxInterval = 0.25f;
+                break;
+            case 2: // Hard
+                minInterval = 0.1f;
+                maxInterval = 0.2f;
+                break;
+            case 3:
+                minInterval = 0.1f;
+                maxInterval = 0.15f;
+                break;
+            default:
+                minInterval = 0.1f;
+                maxInterval = 0.25f;
+                break;
         }
     }
 
